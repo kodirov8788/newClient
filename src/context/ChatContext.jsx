@@ -27,11 +27,15 @@ export const ChatContextProvider = ({ children, user }) => {
     // initial socket
 
     useEffect(() => {
-        const socket = io('http://localhost:5002', {
+        // https://server-fgsr.onrender.com/
+        // const socket = io('http://localhost:5002', {
+        //     reconnectionDelayMax: 10000,
+        //     reconnectionAttempts: 5
+        // });
+        const socket = io('https://server-fgsr.onrender.com', {
             reconnectionDelayMax: 10000,
             reconnectionAttempts: 5
         });
-
         socket.on('connect_error', (err) => {
             console.error('Connection failed: ', err);
         });

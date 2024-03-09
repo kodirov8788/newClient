@@ -1,5 +1,5 @@
-export const ApiURL = "http://localhost:5002";
-// export const ApiURL = "https://server-fgsr.onrender.com";
+// export const ApiURL = "http://localhost:5002";
+export const ApiURL = "https://server-fgsr.onrender.com";
 export const baseUrl = `${ApiURL}/api`;
 
 export const postRequest = async (url, body) => {

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState, useCallback } from "react";
-import { baseUrl, getRequest, postRequest } from "../utils/services";
+import { baseUrl, getRequest, postRequest, ApiURL } from "../utils/services";
 import { io } from "socket.io-client";
 
 export const ChatContext = createContext();
@@ -20,19 +20,15 @@ export const ChatContextProvider = ({ children, user }) => {
     const [notifications, setNotifications] = useState([]);
     const [allUsers, setAllUsers] = useState([]);
 
-    // console.log("messages: ", messages);
+    console.log("messages: ", messages);
     // console.log(onlineUsers, "smt");
     // console.log("currentChat: ", currentChat);
 
     // initial socket
 
     useEffect(() => {
-        // https://server-fgsr.onrender.com/
-        // const socket = io('http://localhost:5002', {
-        //     reconnectionDelayMax: 10000,
-        //     reconnectionAttempts: 5
-        // });
-        const socket = io('https://server-fgsr.onrender.com', {
+
+        const socket = io(ApiURL, {
             reconnectionDelayMax: 10000,
             reconnectionAttempts: 5
         });
